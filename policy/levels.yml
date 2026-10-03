@@ -1,7 +1,17 @@
+# ARIEXCORE autonomy levels
 default: 0
 levels:
-  0: { name: Observe, actions: [read, inspect, report] }
-  1: { name: Assist, actions: [read, plan, patch, open_pr] }
-  2: { name: Governed Autopilot, actions: [execute, verify, recover, trivial_autofix] }
-  3: { name: Never, actions: [] }
-hard_stops: [delete_repository, modify_secrets, force_push_main, change_visibility, merge_without_review]
+  0:
+    name: Observe
+    allow: [read, inspect, report]
+  1:
+    name: Assist
+    allow: [read, plan, patch, open_pr]
+  2:
+    name: Governed Autopilot
+    allow: [execute, autofix_trivial]
+    requires: [evidence_validated, hard_limits]
+  3:
+    name: Never
+    allow: []
+    gate: x4-approval

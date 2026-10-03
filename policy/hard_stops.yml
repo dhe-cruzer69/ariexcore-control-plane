@@ -1,0 +1,9 @@
+# Always Level 3 — never autonomous
+hard_stops:
+  - delete_repository
+  - modify_secrets
+  - force_push_main
+  - change_visibility
+  - merge_without_review
+  - financial_transaction
+  - policy_bypass
