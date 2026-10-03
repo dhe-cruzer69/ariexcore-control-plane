@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "X4 Fleet Contract",
+  "type": "object",
+  "required": ["fleet_id", "repos", "policy_level"],
+  "properties": {
+    "fleet_id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "repos": { "type": "array", "items": { "type": "string" } },
+    "policy_level": { "type": "integer", "minimum": 0, "maximum": 3 },
+    "evidence_required": { "type": "boolean", "default": true }
+  }
+}
